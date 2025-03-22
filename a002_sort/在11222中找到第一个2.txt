@@ -1,0 +1,27 @@
+# 二分查找的变体。
+
+find(left, right):
+    if arr[left] == 2:
+        return left
+    if left == right and arr[left] != 2:
+        return -1
+    if arr[mid] == 1:
+        find on [mid+1, right]
+	else:
+		find on [left, mid]
+        
+        
+function findFirstTwo(arr):
+    left = 0
+    right = length(arr)   // 定义区间 [left, right)
+    while left < right:
+        mid = left + (right - left) // 2
+        if arr[mid] == 1:      // 如果中间元素为1，则第一个2必在右侧
+            left = mid + 1
+        else:                  // 如果中间元素为2，则可能是第一个2，继续在左侧查找
+            right = mid
+    // 循环结束后，left为第一个>=2的位置
+    if left < length(arr) and arr[left] == 2:
+        return left
+    else:
+        return -1
