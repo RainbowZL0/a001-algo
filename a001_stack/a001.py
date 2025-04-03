@@ -43,4 +43,3 @@ class LinkedListStack:
             node = node.next
         arr.reverse()
         return arr
-    

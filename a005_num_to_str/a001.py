@@ -53,7 +53,7 @@ def next_2_elem_could_convert(i: int, arr: list):
     Returns:
 
     """
-    sub_str = arr[i:i+2]
+    sub_str = arr[i:i + 2]
     sub_str = "".join(sub_str)
     if int(sub_str) <= 26:
         return True

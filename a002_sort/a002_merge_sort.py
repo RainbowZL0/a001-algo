@@ -42,8 +42,8 @@ def merge(int_list: list, left, mid, right):
     @param right: end index of list
     @return: none
     """
-    left_part = int_list[left : mid + 1]  # 边界格外注意，左闭右开
-    right_part = int_list[mid + 1 : right + 1]
+    left_part = int_list[left: mid + 1]  # 边界格外注意，左闭右开
+    right_part = int_list[mid + 1: right + 1]
 
     i, j = 0, 0
     copy_to_list_index = left
