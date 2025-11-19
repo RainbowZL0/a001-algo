@@ -3,14 +3,14 @@ def bucket_sort(strings):
         return []
 
     # 为26个字母创建26个桶
-    buckets = {chr(i + ord('a')): [] for i in range(26)}
+    buckets = {chr(i + ord("a")): [] for i in range(26)}
     # 对于空字符串特殊处理，创建一个单独的桶
-    buckets[''] = []
+    buckets[""] = []
 
     # 分配字符串到桶
     for string in strings:
-        if string == '':
-            buckets[''].append(string)
+        if string == "":
+            buckets[""].append(string)
         else:
             buckets[string[0]].append(string[1:])
 
@@ -23,13 +23,13 @@ def bucket_sort(strings):
             # 对桶中的字符串进行递归排序
             sorted_substrings = bucket_sort(buckets[key])
             # 对递归排序结果进行拼接
-            if key != '':
+            if key != "":
                 sorted_strings.extend(key + substring for substring in sorted_substrings)
             else:
                 # 空字符串直接加到结果中
                 sorted_strings.extend(sorted_substrings)
         # 如果桶是空字符串桶，则直接添加
-        elif key == '':
+        elif key == "":
             sorted_strings.extend(buckets[key])
 
     return sorted_strings
@@ -76,7 +76,7 @@ def test_partition_to_three_parts():
     print(i, j)  # 输出小于部分的最后一个元素的位置和等于部分的最后一个元素的位置
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = 1
     b = 2
     c = 3

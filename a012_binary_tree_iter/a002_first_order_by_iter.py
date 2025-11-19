@@ -6,7 +6,7 @@ def first_order_by_iter(head):
     """
     The function `first_order_by_iter` performs a depth-first traversal of a binary tree using an
     iterative approach.
-    
+
     Args:
       head: The `head` parameter in the `first_order_by_iter` function is the starting node of a binary
     tree. The function performs a depth-first traversal of the binary tree in a first-order (pre-order)
@@ -20,7 +20,7 @@ def first_order_by_iter(head):
             stack.append(node.r)
         if node.l:
             stack.append(node.l)
-            
+
 
 # 测试first_order_by_iter()
 def tst_first_order_by_iter():
@@ -32,8 +32,7 @@ def tst_first_order_by_iter():
     head.r.l = TreeNode(6)
     head.r.r = TreeNode(7)
     first_order_by_iter(head)
-    
-    
+
+
 if __name__ == "__main__":
     tst_first_order_by_iter()
-    

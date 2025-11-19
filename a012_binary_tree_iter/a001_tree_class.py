@@ -14,6 +14,7 @@ class Tree:
         self.size = 0
 
     def build_tree(self, lst):
+        # sourcery skip: extract-duplicate-method, use-assigned-variable
         q = deque()
         self.head = TreeNode(lst[0])
         q.append(self.head)

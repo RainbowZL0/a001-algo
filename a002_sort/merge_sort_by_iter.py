@@ -61,18 +61,10 @@ def merge_sort_by_iter(lst):
             left_end = j - 1
 
             # 右侧子区间为 lst[j] 到 lst[min(len(lst)-1, j+group_len-1)]
-            right_end = min(
-                len(lst) - 1,
-                j + group_len - 1
-            )
+            right_end = min(len(lst) - 1, j + group_len - 1)
 
             # 合并这两个子区间
-            merge_two_parts_of_a_list(
-                lst,
-                left_start,
-                left_end,
-                right_end
-            )
+            merge_two_parts_of_a_list(lst, left_start, left_end, right_end)
 
             # 更新指针，移动到下一个需要合并的区间
             i = j + group_len
@@ -97,5 +89,5 @@ def the_test_merge_sort_by_iter():
 
 
 # 当脚本被直接运行时，执行测试函数
-if __name__ == '__main__':
+if __name__ == "__main__":
     the_test_merge_sort_by_iter()

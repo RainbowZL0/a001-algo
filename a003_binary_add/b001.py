@@ -30,7 +30,7 @@ def binary_add(a: list, b: list):
     return r
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     a = [0, 1, 1]
     b = [1, 1, 1]
     print(binary_add(a, b))

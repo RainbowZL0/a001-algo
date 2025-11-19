@@ -15,7 +15,7 @@ def search(a: list, left: int, right: int, target: int):
         return search(a=a, left=left, right=mid - 1, target=target)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     array = [random.randint(a=0, b=100) for i in range(10)]
     array = sorted(array)
     index = search(a=array, left=0, right=9, target=2)

@@ -26,9 +26,7 @@ def merge_sort(int_list: list, left, right):
         return
 
     mid = (left + right) // 2
-    merge_sort(
-        int_list, left, mid
-    )  # 左半部分必须包含mid，否则只有2个元素时会进入无限递归
+    merge_sort(int_list, left, mid)  # 左半部分必须包含mid，否则只有2个元素时会进入无限递归
     merge_sort(int_list, mid + 1, right)
     merge(int_list, left, mid, right)
 
@@ -42,8 +40,8 @@ def merge(int_list: list, left, mid, right):
     @param right: end index of list
     @return: none
     """
-    left_part = int_list[left: mid + 1]  # 边界格外注意，左闭右开
-    right_part = int_list[mid + 1: right + 1]
+    left_part = int_list[left : mid + 1]  # 边界格外注意，左闭右开
+    right_part = int_list[mid + 1 : right + 1]
 
     i, j = 0, 0
     copy_to_list_index = left

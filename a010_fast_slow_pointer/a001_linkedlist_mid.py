@@ -11,7 +11,7 @@ def entry(lst):
     s = 0
     f = 0
     bound = len(lst)  # 让 bound 指向“越界位置”，更好理解 while f < bound
-    while f+1 < bound and f+1+1 < bound:
+    while f + 1 < bound and f + 1 + 1 < bound:
         s += 1
         f += 2
     return s
@@ -29,5 +29,5 @@ def batch_tst():
         tst(length)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     batch_tst()

@@ -98,5 +98,5 @@ def test_heap_sort():
         entire_heap_sort(lst)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_heap_sort()

@@ -30,5 +30,5 @@ def test_reverse_stack():
     print(a)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_reverse_stack()

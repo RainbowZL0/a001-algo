@@ -40,7 +40,7 @@ class Maze:
         self.maze[x][y] = self.color["gray"]
 
         # 获取当前位置 (x, y) 的所有邻居（上、右、下、左）
-        for (i, j) in get_neighbor_list(x, y):
+        for i, j in get_neighbor_list(x, y):
             # 如果邻居未访问（白色），并且从该邻居出发的探索最终能够到达终点，则返回 True
             if self.maze[i][j] == self.color["white"] and self.explore(i, j):
                 return True
@@ -83,7 +83,7 @@ def get_neighbor_list(x, y):
     ]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # 当本模块作为主程序运行时，创建 Maze 类实例并调用 tst_0 测试函数
     m = Maze()
     m.tst_0()
