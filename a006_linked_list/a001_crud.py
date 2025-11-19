@@ -30,7 +30,6 @@ class LinkedList:
         if cur is not None:
             if cur.data == key:
                 self.head = cur.next
-                cur = None
                 return
 
         # 搜索要删除的节点
@@ -47,7 +46,6 @@ class LinkedList:
 
         # 删除节点
         prev.next = cur.next
-        cur = None
 
     def delete_v2(self, key):
         # 我写的版本
@@ -55,7 +53,6 @@ class LinkedList:
 
         if cur and cur.data == key:
             self.head = cur.next
-            cur = None
             return
 
         prev = None
@@ -66,7 +63,6 @@ class LinkedList:
             return
         if cur.data == key:
             prev.next = cur.next
-            cur = None
             return
 
     # 打印链表内容
@@ -78,7 +74,7 @@ class LinkedList:
         print("None")
 
 
-def test_list():
+def tst_linklist():
     llist = LinkedList()
 
     # 添加元素
@@ -99,4 +95,4 @@ def test_list():
 
 # 测试链表的操作
 if __name__ == "__main__":
-    test_list()
+    tst_linklist()

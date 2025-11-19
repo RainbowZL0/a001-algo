@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "a002_first_order_by_iter",
+            "type": "debugpy",
+            "request": "launch",
+            // "program": "${file}",
+            "console": "integratedTerminal",
+            "cwd": "${workspaceFolder}",
+            "module": ""
+        }
+    ]
+}
