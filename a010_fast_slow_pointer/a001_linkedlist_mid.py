@@ -7,7 +7,7 @@ def entry(lst):
     偶数长度时取“上中位” (即慢指针走到第二个中点的前一个)
     """
     if not lst:
-        return
+        return None
     s = 0
     f = 0
     bound = len(lst)  # 让 bound 指向“越界位置”，更好理解 while f < bound

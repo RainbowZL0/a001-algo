@@ -1,6 +1,6 @@
 def pop_bottom(a: list):
     if not a:
-        return
+        return None
     record = a.pop()
     if not a:
         return record
