@@ -4,15 +4,14 @@ import random
 
 def search(a: list, left: int, right: int, target: int):
     if left > right:
-        return
+        return None
     mid = math.floor((left + right) / 2)
     mid_elem = a[mid]
     if mid_elem == target:
         return mid
-    elif mid_elem < target:
+    if mid_elem < target:
         return search(a=a, left=mid + 1, right=right, target=target)
-    else:
-        return search(a=a, left=left, right=mid - 1, target=target)
+    return search(a=a, left=left, right=mid - 1, target=target)
 
 
 if __name__ == "__main__":

@@ -39,8 +39,7 @@ def has_more_than_2_elem(i: int, arr: list):
     """
     if len(arr) - i >= 2:
         return True
-    else:
-        return False
+    return False
 
 
 def next_2_elem_could_convert(i: int, arr: list):
@@ -57,8 +56,7 @@ def next_2_elem_could_convert(i: int, arr: list):
     sub_str = "".join(sub_str)
     if int(sub_str) <= 26:
         return True
-    else:
-        return False
+    return False
 
 
 def test_go():

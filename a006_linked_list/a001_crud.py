@@ -27,16 +27,13 @@ class LinkedList:
         cur = self.head
 
         # 如果头节点是要删除的节点
-        if cur is not None:
-            if cur.data == key:
-                self.head = cur.next
-                return
+        if cur is not None and cur.data == key:
+            self.head = cur.next
+            return
 
         # 搜索要删除的节点
         prev = None
-        while cur is not None:
-            if cur.data == key:
-                break
+        while cur is not None and cur.data != key:
             prev = cur
             cur = cur.next
 
@@ -63,7 +60,6 @@ class LinkedList:
             return
         if cur.data == key:
             prev.next = cur.next
-            return
 
     # 打印链表内容
     def print_list(self):
@@ -72,6 +68,10 @@ class LinkedList:
             print(temp.data, end=" -> ")
             temp = temp.next
         print("None")
+        
+    def build_list_from_py_list(self, lst):
+        for elem in lst:
+            self.append(elem)
 
 
 def tst_linklist():
