@@ -20,7 +20,7 @@ def build_tst_ll_1():
     lst2 = [4, 9, 9, 9]
     ll1.build_list_from_py_list(lst1)
     ll2.build_list_from_py_list(lst2)
-    
+
     return ll1, ll2
 
 
@@ -37,14 +37,14 @@ def add_two_lists(ll1: LinkedList, ll2: LinkedList):
     j = ll2.head
     carry = 0
     rst_ll = LinkedList()
-    
+
     while i or j or carry:
         val1 = i.data if i else 0
         val2 = j.data if j else 0
         total = val1 + val2 + carry
         carry = total // 10
         rst_ll.append(total % 10)
-        
+
         if i:
             i = i.next
         if j:
@@ -60,12 +60,11 @@ def tst_add_two_lists():
     ll1.print_list()
     print("List 2:")
     ll2.print_list()
-    
+
     rst_ll = add_two_lists(ll1, ll2)
     print("Resultant List after addition:")
     rst_ll.print_list()
-    
+
 
 if __name__ == "__main__":
     tst_add_two_lists()
-    
