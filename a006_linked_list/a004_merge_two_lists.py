@@ -48,10 +48,6 @@ def merge_two_lists(l1, l2):
 def merge_two_lists_optimized(l1, l2):
     """
     标准解法。
-    
-    Args:
-      l1: List 1 to be merged
-      l2: It seems like you were about to provide some information about the `l2` parameter in the `merge_two_lists_optimized` function. How can I assist you further with this function?
     """
     # 1. 边界检查（你写的这部分没问题，保留）
     if not l1.head:
