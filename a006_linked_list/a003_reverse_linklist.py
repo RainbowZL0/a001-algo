@@ -19,7 +19,7 @@ def reverse_linked_list(ll: LinkedList):
         prev = cur
         cur = next_code
     ll.head = prev
-    
+
 
 def tst_reverse_linked_list():
     ll = build_tst_ll()
