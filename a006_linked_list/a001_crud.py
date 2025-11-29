@@ -68,6 +68,10 @@ class LinkedList:
             print(temp.data, end=" -> ")
             temp = temp.next
         print("None")
+        
+    def build_list_from_py_list(self, lst):
+        for elem in lst:
+            self.append(elem)
 
 
 def tst_linklist():
