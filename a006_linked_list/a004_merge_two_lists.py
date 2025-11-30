@@ -87,7 +87,7 @@ def merge_two_lists_optimized(l1, l2):
     # 5. 封装返回值
     # 因为你的函数签名要求返回一个 LinkedList 对象，我们把结果包装回去
     result_list = LinkedList()
-    result_list.head = dummy.next
+    result_list.head = dummy.next  # 重点，头节点如何拿到，它是 dummy.next
     return result_list
 
 
