@@ -68,30 +68,19 @@ def tst_reverse_by_k():
 
 """
 标准解法
-
 核心思路
 Dummy Node：创建一个虚拟头指向链表头部，这样“第一组”和“后续组”的操作逻辑就完全一样了，不需要单独维护 rst_head。
-
 三个指针：
-
 pre：当前要翻转的 k 个节点的前一个节点（固定不动）。
-
 start：当前要翻转的 k 个节点的第一个。
-
 end：当前要翻转的 k 个节点的最后一个。
 
 流程：
-
 先让 end 走 k 步，如果不够 k 步直接返回。
-
 记录 next_group = end.next。
-
 断开链表（可选，或者传入范围反转）。
-
 翻转 start 到 end。
-
 拼接：pre.next 指向翻转后的头，start.next 指向 next_group。
-
 重置：pre 移动到 start（现在的队尾），开启下一轮。
 """
 # 假设这是 Node 定义
@@ -106,18 +95,18 @@ end：当前要翻转的 k 个节点的最后一个。
 #     dummy.next = head
 
 #     # pre 永远指向"上一组"的结尾，对于第一组来说，上一组结尾就是 dummy
-#     pre = dummy
+#     tail = dummy
 
 #     while True:
 #         # 1. 检查剩余节点是否有 k 个
-#         end = pre
+#         end = tail
 #         for _ in range(k):
 #             end = end.next
 #             if not end:
 #                 return dummy.next  # 不足 k 个，保持原样，直接结束
 
 #         # 2. 记录关键节点
-#         start = pre.next
+#         start = tail.next
 #         next_group_start = end.next
 
 #         # 3. 翻转当前组 (这里展示切断链表法的标准写法)
@@ -125,11 +114,11 @@ end：当前要翻转的 k 个节点的最后一个。
 #         reverse(start)  # 反转 start 到 end (此时 end.next 是 None)
 
 #         # 4. 重新连接
-#         pre.next = end  # 上一组结尾 -> 当前组新头 (原来的 end)
+#         tail.next = end  # 上一组结尾 -> 当前组新头 (原来的 end)
 #         start.next = next_group_start  # 当前组新尾 -> 下一组开头
 
 #         # 5. 指针后移，准备下一轮
-#         pre = start  # 当前组的新尾 (start) 变成了下一组的 pre
+#         tail = start  # 当前组的新尾 (start) 变成了下一组的 pre
 
 #     return dummy.next
 

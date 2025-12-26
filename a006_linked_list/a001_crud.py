@@ -72,6 +72,14 @@ class LinkedList:
     def build_list_from_py_list(self, lst):
         for elem in lst:
             self.append(elem)
+            
+    def get_length(self):
+        count = 0
+        current = self.head
+        while current:
+            count += 1
+            current = current.next
+        return count
 
 
 def tst_linklist():
