@@ -73,7 +73,7 @@ class Solution:
                 l2 = l2.next
             cur = cur.next
 
-        cur.next = l1 if l1 else l2
+        cur.next = l1 or l2
 
         # 这一步很关键：为了外层循环能接上，我们需要走到这一段的尽头
         while cur.next:
