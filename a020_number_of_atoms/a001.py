@@ -4,30 +4,9 @@ https://leetcode.cn/problems/number-of-atoms/description/
 输出："K4N2O14S4"
 解释：原子的数量是 {'K': 4, 'N': 2, 'O': 14, 'S': 4}。
 """
+
 import operator
 from collections import defaultdict
-
-
-def collect(result, elem_str, elem_dic, num):
-    """
-    收集原子计数的辅助函数
-    Args:
-        result: 存储最终结果的字典
-        elem_str: 当前处理的元素字符串
-        elem_dic: 当前处理的元素字典
-        num: 当前元素的计数
-    Returns:
-        更新后的结果字典
-    """
-    # num为0的含义是1
-    if num == 0:
-        num = 1
-    if elem_str != "":
-        result[elem_str] += num
-    if len(elem_dic) > 0:
-        for k, v in elem_dic.items():
-            result[k] += v * num  # 别忘了这里要乘num
-    return result
 
 
 class Solution:
@@ -41,7 +20,6 @@ class Solution:
         self.i = 0  # 当前处理位置的索引
 
     def solve(self):
-
         """
         递归解析化学式并统计原子数量
 
@@ -89,6 +67,28 @@ class Solution:
         return result
 
 
+def collect(result, elem_str, elem_dic, num):
+    """
+    收集原子计数的辅助函数
+    Args:
+        result: 存储最终结果的字典
+        elem_str: 当前处理的元素字符串
+        elem_dic: 当前处理的元素字典
+        num: 当前元素的计数
+    Returns:
+        更新后的结果字典
+    """
+    # num为0的含义是1
+    if num == 0:
+        num = 1
+    if elem_str != "":
+        result[elem_str] += num
+    if len(elem_dic) > 0:
+        for k, v in elem_dic.items():
+            result[k] += v * num  # 别忘了这里要乘num
+    return result
+
+
 def tst_1():
     # 创建Solution类实例，传入化学式字符串"(O2H3)2Fe2A(CD)2"
     sol = Solution("(O2H3)2Fe2A(CD)2")
@@ -102,7 +102,7 @@ def tst_1():
     # 遍历排序后的字典，将元素符号和数量拼接成字符串
     for k, v in sorted_dict.items():
         string += k  # 添加元素符号
-        if v > 1:    # 如果数量大于1，则添加数量
+        if v > 1:  # 如果数量大于1，则添加数量
             string += str(v)
     # 打印最终的化学式字符串
     print(string)
