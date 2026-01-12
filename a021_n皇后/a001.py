@@ -11,14 +11,18 @@ class Solution:
     def solve(self, path, i):
         """
         使用回溯法解决N皇后问题
+        黑盒功能：在path的[0,i)位（前i-1行）已给出的情况下，收集i行及之后行的所有可能解
         :param path: 当前路径，表示已经放置的皇后位置
         :param i: 当前行号
         """
+        # 终止递归条件
         if i == self.n:
             # 如果已经放置了n个皇后，将当前路径添加到结果中
             self.result.append(path.copy())
+            return  # 记得写本行，因为是终止条件
 
         # 在第i行上，j尝试摆放所有列
+        # 该步时间O(n^2)
         for j in range(self.n):
             if can_use(path, i, j):
                 path[i] = j  # 在第i行的第j列放置皇后
