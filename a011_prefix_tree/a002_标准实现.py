@@ -42,7 +42,7 @@ class Trie:
         cur = self.head
         for e in string:
             # 如果当前字符的子节点不存在，返回0
-            if cur.children.get(e):
+            if cur.children.get(e) is not None:
                 cur = cur.children.get(e)
             else:
                 return 0
