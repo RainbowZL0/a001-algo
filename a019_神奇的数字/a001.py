@@ -36,7 +36,9 @@ class Solution:
             m = (l + r) // 2
             magic_cnt = magic(m, self.a, self.b, lcm_a_b)
 
-            # 注意避免错误思路：若magic_cnt恰为n时返回，是错的
+            # 注意避免错误思路：若magic_cnt恰为n时返回，是错的。
+            # 因为 < n 的神奇数的数量是阶梯状增长的，有平台，必须返回最左的那一个
+            # 对应普通二分查找问题，如果目标值有相同的多个，必须返回最左的那一个
             if magic_cnt < self.n:
                 # 范围内的神奇数不够，说明 m 太小了，肯定不是答案
                 l = m + 1
