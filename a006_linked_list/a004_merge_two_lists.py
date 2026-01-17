@@ -17,7 +17,7 @@ def merge_two_lists(l1, l2):
         return l2
     if not l2.head:
         return l1
-    
+
     # i、j 分别指向两个链表当前待比较的节点
     i = l1.head
     j = l2.head
@@ -27,7 +27,7 @@ def merge_two_lists(l1, l2):
     else:
         i, j = j, i
         rst = l2
-    
+
     # i 永远是已经连好的部分的最后一个节点
     while i.next is not None:
         if i.next.data <= j.data:
@@ -41,7 +41,7 @@ def merge_two_lists(l1, l2):
     # 另一个链表 l1 或 l2 可能还有剩余节点，直接连上即可
     if j is not None:
         i.next = j
-    
+
     return rst
 
 
@@ -98,7 +98,7 @@ def build_ll_1():
     l1.append(9)
     l1.append(10)
     l1.print_list()
-    
+
     l2 = LinkedList()
     l2.append(2)
     l2.append(5)
@@ -115,7 +115,7 @@ def build_ll_2():
     # l1.append(2)
     # l1.append(4)
     l1.print_list()
-    
+
     l2 = LinkedList()
     l2.append(1)
     l2.append(3)

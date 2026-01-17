@@ -2,6 +2,7 @@
 最大异或值问题解决方案
 使用前缀树(Trie)数据结构来高效地查找最大异或值
 """
+
 from a011_prefix_tree.a002_标准实现 import Trie
 
 
@@ -99,10 +100,7 @@ class Solution:
 
 
 def tst_1():
-    lst = [
-        "00001111",
-        "11110000"
-    ]
+    lst = ["00001111", "11110000"]
     print(Solution().entry(lst))
 
 

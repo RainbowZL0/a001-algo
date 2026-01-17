@@ -1,5 +1,4 @@
 def f(num, src, to, other):
-
     """
     汉诺塔问题的递归解决方案函数
 

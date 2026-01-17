@@ -1,6 +1,5 @@
 class Solution:
     def __init__(self, param_in):
-
         """
         初始化方法
         :param param_in: 输入的字符串参数
@@ -9,7 +8,6 @@ class Solution:
         self.param_in = param_in  # 存储输入的字符串
 
     def entry(self):
-
         """
         入口方法，用于开始处理字符串
         :return: 处理后的结果字符串
@@ -19,7 +17,6 @@ class Solution:
         return rst
 
     def solve(self):
-
         """
         递归处理字符串的核心方法
         处理包含数字和方括号的字符串，实现类似解码字符串的功能

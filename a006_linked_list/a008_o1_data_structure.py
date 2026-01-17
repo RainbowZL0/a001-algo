@@ -7,13 +7,13 @@ class Node:
         self.elems = set()
         self.pr = None
         self.nxt = None
-        
+
 
 class LL:
     def __init__(self) -> None:
         self.head = None
         self.tail = None
-    
+
     def insert_node_right(self, cur):
         """cur 不允许为空"""
         assert cur is not None
@@ -27,13 +27,13 @@ class LL:
         cur.nxt = node
         node.pr = cur
         node.nxt = nxt
-        
+
         if nxt is not None:
             nxt.pr = node
-        
+
         if cur is self.tail:
             self.tail = node
-        
+
         # 返回新点
         return node
 
@@ -41,24 +41,24 @@ class LL:
         """cur 不允许为空，且cur.freq不为1"""
         assert cur is not None
         assert cur.freq != 1
-        
+
         pr = cur.pr
         node = Node()
         node.freq = cur.freq - 1
         cur.pr = node
         node.nxt = cur
         node.pr = pr
-        
+
         if pr is not None:
             pr.nxt = node
-        
+
         # 若传入的cur是头，则头改为node，是新头
         if cur is self.head:
             self.head = node
 
         # 返回新点
         return node
-                
+
     def remove_node(self, cur):
         """cur 不允许为空"""
         pr = cur.pr
@@ -67,35 +67,35 @@ class LL:
             pr.nxt = nxt
         if nxt is not None:
             nxt.pr = pr
-            
+
         if cur is self.head:
             self.head = nxt
         if cur is self.tail:
             self.tail = pr
-            
+
     def add_first_node(self):
         node = Node()
         node.freq = 1
         self.head = node
         self.tail = node
         return node
-            
+
 
 class Ans:
     def __init__(self) -> None:
         self.ll = LL()
         self.dic = {}
-        
+
     def get_max_freq_elems(self):
         if self.ll.tail:
             return self.ll.tail.elems
         return None
-    
+
     def get_min_freq_elems(self):
         if self.ll.head:
             return self.ll.head.elems
         return None
-    
+
     def add_elem(self, k):
         if k in self.dic:
             cur = self.dic[k]
@@ -107,7 +107,7 @@ class Ans:
             nw.elems.add(k)
             # dic维护
             self.dic[k] = nw
-            
+
             # 若cur的elem已清空，删除链表结点
             if len(cur.elems) == 0:
                 self.ll.remove_node(cur)
@@ -118,7 +118,7 @@ class Ans:
                 nw = self.ll.add_first_node()
                 nw.elems.add(k)
                 self.dic[k] = nw
-            else:  
+            else:
                 # 若链表不空，说明self.head不空
                 # 若freq=1的点存在，等价于self.ll.head的freq是1
                 if self.ll.head.freq == 1:
@@ -131,7 +131,7 @@ class Ans:
                     assert nw.nxt is not None
                     nw.elems.add(k)
                     self.dic[k] = nw
-                    
+
     def dec_elem(self, k):
         # 若该元素存在
         if k in self.dic:
@@ -146,12 +146,12 @@ class Ans:
                     nw = cur.pr
                 nw.elems.add(k)
                 self.dic[k] = nw
-                
+
             # 若cur的elem已清空，删除链表结点
             if len(cur.elems) == 0:
                 self.ll.remove_node(cur)
-                                
-                    
+
+
 if __name__ == "__main__":
     ans = Ans()
     ans.add_elem("a")
@@ -160,5 +160,5 @@ if __name__ == "__main__":
     ans.add_elem("a")
     ans.add_elem("c")
     ans.add_elem("b")
-    
+
     ans.dec_elem("a")

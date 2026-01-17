@@ -153,10 +153,7 @@ class Solution:
 # --- 测试代码 ---
 def tst_1():
     print("--- Test Case 1 ---")
-    mesh = [
-        ["a", "b"],
-        ["c", "d"]
-    ]
+    mesh = [["a", "b"], ["c", "d"]]
     # "ac" 无法连续走通, "abdc" 可以(右下左), "dca" 可以(上右), "bdc" 可以
     string_lst = ["ac", "abdc", "dca", "bdc"]
 
@@ -168,12 +165,7 @@ def tst_1():
 
 def tst_2():
     print("\n--- Test Case 2 (Overlapping) ---")
-    mesh = [
-        ["o", "a", "a", "n"],
-        ["e", "t", "a", "e"],
-        ["i", "h", "k", "r"],
-        ["i", "f", "l", "v"]
-    ]
+    mesh = [["o", "a", "a", "n"], ["e", "t", "a", "e"], ["i", "h", "k", "r"], ["i", "f", "l", "v"]]
     string_lst = ["oath", "pea", "eat", "rain"]
     # oath: (0,0)->...->(1,2)
     # eat: (1,0)->(1,1)->(1,2)

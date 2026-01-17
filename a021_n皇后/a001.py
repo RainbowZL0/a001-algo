@@ -1,6 +1,5 @@
 class Solution:
     def __init__(self, n):
-
         """
         初始化解决方案对象
         :param n: 棋盘大小，n x n的棋盘

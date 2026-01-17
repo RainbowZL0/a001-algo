@@ -8,7 +8,6 @@ class Node:
 
 # 计算从给定节点开始的最左路径深度
 def left_depth(node):
-
     """
     计算二叉树节点的左子树深度
     参数:
@@ -47,5 +46,5 @@ class Solution:
             return self.solve(node.right, node_depth + 1) + l_tree_num + 1
         # 若右树深度不到底
         # 说明右树是满的，只是不到底
-        r_tree_num = 2 ** r_tree_depth - 1
+        r_tree_num = 2**r_tree_depth - 1
         return self.solve(node.left, node_depth + 1) + r_tree_num + 1

@@ -17,12 +17,12 @@ def merge_part(lst, l_start, l_end, r_end):
     while j <= r_end:
         merged.append(lst[j])
         j += 1
-    
+
     a = l_start
     for k in range(len(merged)):
         lst[a] = merged[k]
         a += 1
-        
+
 
 def merge_sort_iter(lst):
     half_range = 1
@@ -37,7 +37,7 @@ def merge_sort_iter(lst):
             start += 2 * half_range
             end += 2 * half_range
         half_range *= 2
-        
+
 
 def tst_merge_sort_iter():
     lst: list[int] = [3, 38, 27, 43, 3, 9, 82, 10]
@@ -48,4 +48,3 @@ def tst_merge_sort_iter():
 
 if __name__ == "__main__":
     tst_merge_sort_iter()
-    

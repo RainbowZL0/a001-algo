@@ -68,11 +68,11 @@ class LinkedList:
             print(temp.data, end=" -> ")
             temp = temp.next
         print("None")
-        
+
     def build_list_from_py_list(self, lst):
         for elem in lst:
             self.append(elem)
-            
+
     def get_length(self):
         count = 0
         current = self.head

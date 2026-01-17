@@ -46,7 +46,7 @@ def tst_1():
     # 循环1到99
     for i in range(1, 100):
         # 打印当前数字和调用entry方法的结果
-        print(f"{i}: {sol.entry(i, "A", "B")}")
+        print(f"{i}: {sol.entry(i, 'A', 'B')}")
 
 
 if __name__ == "__main__":

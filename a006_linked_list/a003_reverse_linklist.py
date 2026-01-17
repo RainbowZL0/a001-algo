@@ -25,8 +25,7 @@ def tst_reverse_linked_list():
     ll = build_tst_ll()
     reverse_linked_list(ll)
     ll.print_list()
-    
+
 
 if __name__ == "__main__":
     tst_reverse_linked_list()
-    

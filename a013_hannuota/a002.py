@@ -67,9 +67,7 @@ class HanoiGUI:
         self.canvas.create_rectangle(50, self.peg_y_bottom, 750, self.peg_y_bottom + 20, fill="#8B4513")
         # 柱子
         for x in self.peg_xs:
-            self.canvas.create_line(
-                x, self.peg_y_bottom, x, self.peg_y_bottom - self.peg_height, width=6, fill="#8B4513"
-            )
+            self.canvas.create_line(x, self.peg_y_bottom, x, self.peg_y_bottom - self.peg_height, width=6, fill="#8B4513")
 
         # 标签
         labels = ["A", "B", "C"]
@@ -95,9 +93,14 @@ class HanoiGUI:
 
             tag = f"disk_{i}"
             rect = self.canvas.create_rectangle(
-                x_center - width / 2, y_bottom - self.disk_height,
-                x_center + width / 2, y_bottom,
-                fill=color, outline="black", width=1, tags=tag
+                x_center - width / 2,
+                y_bottom - self.disk_height,
+                x_center + width / 2,
+                y_bottom,
+                fill=color,
+                outline="black",
+                width=1,
+                tags=tag,
             )
 
             # 4. 加入栈
@@ -177,11 +180,7 @@ class HanoiGUI:
         # 第2个盘子(count=2) -> i=1 -> y_bottom - 1*h
         new_y_bottom = self.peg_y_bottom - (count_on_target - 1) * self.disk_height
 
-        self.canvas.coords(
-            rect_id,
-            new_x_center - width / 2, new_y_bottom - self.disk_height,
-            new_x_center + width / 2, new_y_bottom
-        )
+        self.canvas.coords(rect_id, new_x_center - width / 2, new_y_bottom - self.disk_height, new_x_center + width / 2, new_y_bottom)
         self.canvas.update()
         print(f"move disk from {src_name} to {to_name}")
 

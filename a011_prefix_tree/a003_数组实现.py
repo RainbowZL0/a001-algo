@@ -1,19 +1,18 @@
 # noinspection DuplicatedCode
 class Solution:
     def __init__(self):
-
         """
         初始化函数，初始化字典树的基本参数和结构
         """
         self.capacity = 100000  # 字典树的最大容量
-        self.keys_num = 26      # 字符集大小，26个英文字母
+        self.keys_num = 26  # 字符集大小，26个英文字母
         # 初始化字典树节点，使用二维列表表示
         self.node: list[list[int]] = [[0 for _ in range(self.keys_num)] for _ in range(self.capacity)]
         # 记录经过每个节点的单词数量
         self.pass_ = [0 for _ in range(self.capacity)]
         # 记录以每个节点结尾的单词数量
         self.end = [0 for _ in range(self.capacity)]
-        self.cnt = 1            # 当前已使用的节点数量
+        self.cnt = 1  # 当前已使用的节点数量
 
     def entry(self):
         """
@@ -43,7 +42,7 @@ class Solution:
                 self.cnt += 1
                 self.node[cur][loc] = self.cnt
             cur = self.node[cur][loc]  # 移动到子节点
-            self.pass_[cur] += 1      # 经过次数加1
+            self.pass_[cur] += 1  # 经过次数加1
         self.end[cur] += 1  # 单词结束标记加1
 
     def search_pass(self, string):
@@ -106,8 +105,8 @@ def tst_1():
     sol = Solution()
     sol.increase("abc")  # 插入字符串"abc"
     print(sol.search_end("abc"))  # 搜索完全匹配"abc"的字符串数量
-    print(sol.search_pass("a"))   # 搜索以"a"为前缀的字符串数量
-    print(sol.decrease("a"))     # 尝试删除字符串"a"
+    print(sol.search_pass("a"))  # 搜索以"a"为前缀的字符串数量
+    print(sol.decrease("a"))  # 尝试删除字符串"a"
 
 
 if __name__ == "__main__":
