@@ -67,7 +67,14 @@ class HanoiGUI:
         self.canvas.create_rectangle(50, self.peg_y_bottom, 750, self.peg_y_bottom + 20, fill="#8B4513")
         # 柱子
         for x in self.peg_xs:
-            self.canvas.create_line(x, self.peg_y_bottom, x, self.peg_y_bottom - self.peg_height, width=6, fill="#8B4513")
+            self.canvas.create_line(
+                x,
+                self.peg_y_bottom,
+                x,
+                self.peg_y_bottom - self.peg_height,
+                width=6,
+                fill="#8B4513",
+            )
 
         # 标签
         labels = ["A", "B", "C"]
@@ -77,7 +84,16 @@ class HanoiGUI:
     def create_disks(self, n):
         """初始化圆盘 (修正版：大盘在下，小盘在上)"""
         self.disks = [[], [], []]
-        colors = ["#FF5733", "#C70039", "#900C3F", "#581845", "#2874A6", "#1ABC9C", "#F1C40F", "#E67E22"]
+        colors = [
+            "#FF5733",
+            "#C70039",
+            "#900C3F",
+            "#581845",
+            "#2874A6",
+            "#1ABC9C",
+            "#F1C40F",
+            "#E67E22",
+        ]
 
         # 从底部(i=0)往顶部(i=n-1)生成
         for i in range(n):
@@ -180,7 +196,13 @@ class HanoiGUI:
         # 第2个盘子(count=2) -> i=1 -> y_bottom - 1*h
         new_y_bottom = self.peg_y_bottom - (count_on_target - 1) * self.disk_height
 
-        self.canvas.coords(rect_id, new_x_center - width / 2, new_y_bottom - self.disk_height, new_x_center + width / 2, new_y_bottom)
+        self.canvas.coords(
+            rect_id,
+            new_x_center - width / 2,
+            new_y_bottom - self.disk_height,
+            new_x_center + width / 2,
+            new_y_bottom,
+        )
         self.canvas.update()
         print(f"move disk from {src_name} to {to_name}")
 

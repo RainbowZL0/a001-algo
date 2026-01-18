@@ -11,9 +11,8 @@ def generate_list():
     """
     @return:
     """
-    unsorted_list = [random.randint(1, 10000) for _ in range(N)]
+    return [random.randint(1, 10000) for _ in range(N)]
     # unsorted_list = [1, 2, 3]
-    return unsorted_list
 
 
 def bubble_sort(int_list):

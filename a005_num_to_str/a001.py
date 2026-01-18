@@ -8,9 +8,8 @@ def go(i: int, arr: list, ans: int):
     # 两种直接返回的base case
     if i >= len(arr):
         return 1
-    if i == len(arr) - 1:
-        if arr[i] == "0":
-            return 0
+    if i == len(arr) - 1 and arr[i] == "0":
+        return 0
         # else:
         #     return 1
 
@@ -37,9 +36,7 @@ def has_more_than_2_elem(i: int, arr: list):
     Returns:
 
     """
-    if len(arr) - i >= 2:
-        return True
-    return False
+    return len(arr) - i >= 2
 
 
 def next_2_elem_could_convert(i: int, arr: list):
@@ -54,9 +51,7 @@ def next_2_elem_could_convert(i: int, arr: list):
     """
     sub_str = arr[i : i + 2]
     sub_str = "".join(sub_str)
-    if int(sub_str) <= 26:
-        return True
-    return False
+    return int(sub_str) <= 26
 
 
 def test_go():

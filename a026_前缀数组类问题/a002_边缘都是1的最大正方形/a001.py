@@ -1,3 +1,25 @@
+"""
+https://leetcode.cn/problems/largest-1-bordered-square/description/
+1139. 最大的以 1 为边界的正方形
+
+给你一个由若干 0 和 1 组成的二维网格 grid，请你找出边界全部由 1 组成的最大 正方形 子网格，
+并返回该子网格中的元素数量。如果不存在，则返回 0。
+
+示例 1：
+输入：grid = [[1,1,1],[1,0,1],[1,1,1]]
+输出：9
+
+示例 2：
+输入：grid = [[1,1,0,0]]
+输出：1
+
+提示：
+1 <= grid.length <= 100
+1 <= grid[0].length <= 100
+grid[i][j] 为 0 或 1
+"""
+
+
 class Solution:
     def __init__(self):
         """"""
@@ -28,25 +50,16 @@ class Solution:
 
                 if arr[i][j] == 1:
                     a_ans = max(a_ans, 1)
-                a = 1
+
+                # 从比已知解大1的a开始尝试，比永远都从1开始更有效率
+                a = a_ans + 1
                 while i - a >= 0 and j - a >= 0:
                     # (i-a, j-a)
                     #           (i-a+1, j-a+1)
                     #                           (i-1, j-1)
                     #                                       (i, j)
-                    diff_area = (
-                        area(
-                            arr,
-                            prefix_sum,
-                            i - a, j - a,
-                            i, j
-                        )
-                        - area(
-                            arr,
-                            prefix_sum,
-                            i - a + 1, j - a + 1,
-                            i - 1, j - 1
-                        )
+                    diff_area = area(arr, prefix_sum, i - a, j - a, i, j) - area(
+                        arr, prefix_sum, i - a + 1, j - a + 1, i - 1, j - 1
                     )
                     if diff_area == 4 * a:
                         a_ans = max(a_ans, a + 1)  # a=边长减1，边长=a+1
@@ -94,10 +107,12 @@ def area(arr, prefix_sum, top_left_r, top_left_c, bottom_right_r, bottom_right_c
     if r1 > r2 and c1 > c2:
         return 0
     # 否则返回范围里的数的总和，用二维前缀树组加速计算
-    return (subscribe(prefix_sum, r2, c2)
-            - subscribe(prefix_sum, r2, c1 - 1)
-            - subscribe(prefix_sum, r1 - 1, c2)
-            + subscribe(prefix_sum, r1 - 1, c1 - 1))
+    return (
+        subscribe(prefix_sum, r2, c2)
+        - subscribe(prefix_sum, r2, c1 - 1)
+        - subscribe(prefix_sum, r1 - 1, c2)
+        + subscribe(prefix_sum, r1 - 1, c1 - 1)
+    )
 
 
 def tst():
@@ -105,77 +120,30 @@ def tst():
 
     test_cases = [
         # Case 1: 单个 0
-        {
-            "arr": [[0]],
-            "expected": 0,
-            "desc": "Single 0"
-        },
+        {"arr": [[0]], "expected": 0, "desc": "Single 0"},
         # Case 2: 单个 1
-        {
-            "arr": [[1]],
-            "expected": 1,
-            "desc": "Single 1"
-        },
+        {"arr": [[1]], "expected": 1, "desc": "Single 1"},
         # Case 3: 2x2 全 1 正方形
-        {
-            "arr": [
-                [1, 1],
-                [1, 1]
-            ],
-            "expected": 2,
-            "desc": "2x2 Solid Square"
-        },
+        {"arr": [[1, 1], [1, 1]], "expected": 2, "desc": "2x2 Solid Square"},
         # Case 4: 3x3 只有边界是 1 (中间是 0)
         # 这种题通常考察的是"边界全为1的最大正方形"
-        {
-            "arr": [
-                [1, 1, 1],
-                [1, 0, 1],
-                [1, 1, 1]
-            ],
-            "expected": 3,
-            "desc": "3x3 Hollow Square"
-        },
+        {"arr": [[1, 1, 1], [1, 0, 1], [1, 1, 1]], "expected": 3, "desc": "3x3 Hollow Square"},
         # Case 5: 3x3 全 1
-        {
-            "arr": [
-                [1, 1, 1],
-                [1, 1, 1],
-                [1, 1, 1]
-            ],
-            "expected": 3,
-            "desc": "3x3 Solid Square"
-        },
+        {"arr": [[1, 1, 1], [1, 1, 1], [1, 1, 1]], "expected": 3, "desc": "3x3 Solid Square"},
         # Case 6: 无法构成正方形的情况 (L型)
-        {
-            "arr": [
-                [1, 1],
-                [1, 0]
-            ],
-            "expected": 1,
-            "desc": "L-Shape (No 2x2)"
-        },
+        {"arr": [[1, 1], [1, 0]], "expected": 1, "desc": "L-Shape (No 2x2)"},
         # Case 7: 矩形中的正方形
         {
-            "arr": [
-                [0, 1, 1, 0],
-                [0, 1, 1, 0],
-                [0, 0, 0, 0]
-            ],
+            "arr": [[0, 1, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]],
             "expected": 2,
-            "desc": "Square inside Rectangle"
+            "desc": "Square inside Rectangle",
         },
         # Case 8: 稍微大一点的空心测试
         {
-            "arr": [
-                [1, 1, 1, 1],
-                [1, 0, 0, 1],
-                [1, 0, 0, 1],
-                [1, 1, 1, 1]
-            ],
+            "arr": [[1, 1, 1, 1], [1, 0, 0, 1], [1, 0, 0, 1], [1, 1, 1, 1]],
             "expected": 4,
-            "desc": "4x4 Hollow Square"
-        }
+            "desc": "4x4 Hollow Square",
+        },
     ]
 
     print(f"{'Description':<25} | {'Expected':<10} | {'Actual':<10} | {'Result'}")

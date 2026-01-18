@@ -140,7 +140,7 @@ class Ans:
             if cur.freq == 1:
                 self.dic.pop(k)
             else:
-                if cur.pr is None or (cur.pr is not None and cur.pr.freq != cur.freq - 1):  # noqa: SIM108
+                if cur.pr is None or (cur.pr is not None and cur.pr.freq != cur.freq - 1):
                     nw = self.ll.insert_node_left(cur)
                 else:
                     nw = cur.pr

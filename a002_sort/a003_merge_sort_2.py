@@ -3,8 +3,8 @@ from math import floor
 
 
 def merge_with_sentinel(a: list, p: int, q: int, r: int):
-    list_1 = [i for i in a[p : q + 1]]  # from p to q
-    list_2 = [i for i in a[q + 1 : r + 1]]  # from q+1 to r
+    list_1 = list(a[p : q + 1])  # from p to q
+    list_2 = list(a[q + 1 : r + 1])  # from q+1 to r
 
     list_1.append(float("inf"))
     list_2.append(float("inf"))
@@ -21,8 +21,8 @@ def merge_with_sentinel(a: list, p: int, q: int, r: int):
 
 
 def merge_with_copy(a: list, p: int, q: int, r: int):
-    list_1 = [i for i in a[p : q + 1]]  # from p to q
-    list_2 = [i for i in a[q + 1 : r + 1]]  # from q+1 to r
+    list_1 = list(a[p : q + 1])  # from p to q
+    list_2 = list(a[q + 1 : r + 1])  # from q+1 to r
 
     i = 0
     j = 0

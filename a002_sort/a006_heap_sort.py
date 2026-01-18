@@ -54,7 +54,7 @@ def heap_sort(lst: list):
     """
     假设传入的是一个最大堆，然后做heap_sort
     """
-    result_lst = list()
+    result_lst = []
     for _ in range(len(lst)):
         last_i = len(lst) - 1
         lst[0], lst[last_i] = lst[last_i], lst[0]

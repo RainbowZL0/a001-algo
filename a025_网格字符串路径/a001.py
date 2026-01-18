@@ -165,7 +165,12 @@ def tst_1():
 
 def tst_2():
     print("\n--- Test Case 2 (Overlapping) ---")
-    mesh = [["o", "a", "a", "n"], ["e", "t", "a", "e"], ["i", "h", "k", "r"], ["i", "f", "l", "v"]]
+    mesh = [
+        ["o", "a", "a", "n"],
+        ["e", "t", "a", "e"],
+        ["i", "h", "k", "r"],
+        ["i", "f", "l", "v"],
+    ]
     string_lst = ["oath", "pea", "eat", "rain"]
     # oath: (0,0)->...->(1,2)
     # eat: (1,0)->(1,1)->(1,2)
